@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import Navbar from "./components/Navbar";
 import RestaurantList from "./components/RestaurantList";
 import TopRated from "./components/TopRated";
+import Shimmer from "./components/Shimmer";
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
@@ -25,6 +26,12 @@ function App() {
     setRestaurants(restaurantData || []);
     setFilteredData(restaurantData || []);
   };
+
+  if(filteredData.length===0){
+    return <Shimmer/> 
+  }
+
+
   return (
     <div className="App">
       <Navbar />
