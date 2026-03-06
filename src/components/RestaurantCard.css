@@ -1,0 +1,46 @@
+.restaurant-card {
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.restaurant-card:hover {
+  transform: scale(1.03);
+}
+
+.restaurant-img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.restaurant-info {
+  padding: 10px 5px;
+}
+
+.restaurant-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.restaurant-cuisine {
+  font-size: 14px;
+  color: #6b6b6b;
+}
+
+.restaurant-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.rating {
+  background-color: #48c479;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-weight: 600;
+}
