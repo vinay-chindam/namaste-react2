@@ -27,12 +27,7 @@ function App() {
     setFilteredData(restaurantData || []);
   };
 
-  if(filteredData.length===0){
-    return <Shimmer/> 
-  }
-
-
-  return (
+  return ( filteredData.length===0 ? <Shimmer/> :
     <div className="App">
       <Navbar />
       <TopRated  restaurants={restaurants}  filteredData={filteredData} setFilteredData={setFilteredData}/>

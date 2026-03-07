@@ -29,11 +29,11 @@ const RestaurantCard = ({ resData }) => {
           {cuisines.slice(0, 3).join(", ")}
         </p>
 
-        <div className="restaurant-details">
+        
           <span className="rating">⭐ {avgRating}</span>
           <span>{sla?.slaString}</span>
           <span>{costForTwo}</span>
-        </div>
+        
 
         <p className="location">{locality}</p>
       </div>
