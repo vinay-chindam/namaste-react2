@@ -7,6 +7,7 @@ const TopRated=({setFilteredData,restaurants})=>{
     const [searchInput,setSearchInput]=useState("")
     
     function filterTopRated(){
+      setSearchInput("")
         setFilteredData(restaurants.filter((res)=>res.info.avgRating>4.5))
 }
     function handleSearch(){

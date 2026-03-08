@@ -64,7 +64,7 @@ function RestaurantMenu() {
               </div>
 
               <img
-                src={`https://media-assets.swiggy.com/swiggy/image/upload+${info.imageId}`}
+                src={`https://media-assets.swiggy.com/swiggy/image/upload/${info.imageId}`}
                 alt={info.name}
               />
 

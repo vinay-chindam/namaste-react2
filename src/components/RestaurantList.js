@@ -10,7 +10,7 @@ const RestaurantList = ({filteredData}) => {
     <div className="restaurant-list">
       <div className="restaurant-container">
         {filteredData.map((res) => (
-          <Link key={res.info.id}
+          <Link className="restaurant-link" key={res.info.id}
              to={`/restaurant/${res.info.id}`}> 
         
               <RestaurantCard  resData={res.info} />

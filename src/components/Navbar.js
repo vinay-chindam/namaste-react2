@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/UseOnlineStatus";
+
 
 function Navbar() {
 
     const [isLogin,setIslogin]=useState(false)
+    const onlineStatus=useOnlineStatus()
+
 
   return (
     <nav className="navbar">
 
       <div className="logo" >
         🍔 Foodie
+      </div>
+      <div>
+        <h3>Online Status:{onlineStatus ? "✔️" :" ❌"}</h3>
       </div>
 
       <ul className="nav-links">
