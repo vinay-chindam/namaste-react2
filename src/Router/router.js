@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy,Suspense } from "react";
 import Layout from "../components/Layout";
 import Home from "../components/Home";
 import About from "../components/About";
@@ -7,32 +8,42 @@ import Other from "../components/Other";
 import Dashboard from "../components/Dashboard";
 import Profile from "../components/Profile";
 import Settings from "../components/Settings";
-import RestaurantMenu from "../components/RestaurantMenu"
+import RestaurantMenu from "../components/RestaurantMenu";
+import Shimmer from "../components/Shimmer";
 
+const Grossary = lazy(() =>import("../components/Grossary"));
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, 
+    element: <Layout />,
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "restaurant/:resId",
-        element: <RestaurantMenu/>
+        element: <RestaurantMenu />,
       },
       {
         path: "about",
-        element: <About />
+        element: <About />,
       },
       {
         path: "contact",
-        element: <Contact />
+        element: <Contact />,
+      },
+      {
+        path: "grossary",
+        element: 
+          <Suspense fallback={<Shimmer/>}>
+            <Grossary />
+          </Suspense>
+        ,
       },
       {
         path: "other",
-        element: <Other />
+        element: <Other />,
       },
       {
         path: "dashboard",
@@ -40,16 +51,16 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Profile />
+            element: <Profile />,
           },
           {
             path: "settings",
-            element: <Settings />
-          }
-        ]
-      }
-    ]
-  }
+            element: <Settings />,
+          },
+        ],
+      },
+    ],
+  },
 ]);
 
 export default router;

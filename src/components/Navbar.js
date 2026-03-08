@@ -24,9 +24,10 @@ function Navbar() {
         <Link to={"/"}>Home</Link>
         <Link path="/about" to={"/about"}>About</Link>
         <Link  to={"/contact"}>Contact</Link>
+        <Link  to={"/grossary"}>Grocessary</Link>
       </ul>
 
-      <div className="nav-right">
+      <div className="nav-right"> 
         <span className="cart">🛒 Cart</span>
         <button onClick={()=>setIslogin(!isLogin)} className="login-btn">{isLogin ? "Logout" : "Login"}</button>
       </div>
