@@ -2,33 +2,32 @@ import { useState, useEffect } from "react";
 import RestaurantList from "../components/RestaurantList";
 import TopRated from "../components/TopRated";
 import Shimmer from "../components/Shimmer";
+import useFetch from "../utils/UseFetch";
 
 function Home() {
+  
+  const {data,loading,error}=useFetch("https://namastedev.com/api/v1/listRestaurants")
   const [restaurants, setRestaurants] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    fetchRestaurants();
-  }, []);
+    if (data) {
+      const restaurantData =
+        data?.data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
 
-  const fetchRestaurants = async () => {
-    const response = await fetch(
-      "https://namastedev.com/api/v1/listRestaurants"
-    );
+      setRestaurants(restaurantData || []);
+      setFilteredData(restaurantData || []);
+    }
+  }, [data]);
 
-    const json = await response.json();
 
-    const restaurantData =
-      json?.data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
 
-    setRestaurants(restaurantData || []);
-    setFilteredData(restaurantData || []);
-  };
+  if (loading) return <Shimmer />;
 
-  return filteredData.length === 0 ? (
-    <Shimmer />
-  ) : (
+  if (error) return <h2>Error loading restaurants</h2>;
+
+  return  (
     <div className="App">
       <TopRated
         restaurants={restaurants}

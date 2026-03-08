@@ -7,6 +7,7 @@ import Other from "../components/Other";
 import Dashboard from "../components/Dashboard";
 import Profile from "../components/Profile";
 import Settings from "../components/Settings";
+import RestaurantMenu from "../components/RestaurantMenu"
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
+      },
+      {
+        path: "restaurant/:resId",
+        element: <RestaurantMenu/>
       },
       {
         path: "about",

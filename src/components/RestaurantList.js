@@ -1,6 +1,7 @@
 
 import RestaurantCard from "./RestaurantCard ";
 import "./RestaurantList.css";
+import { Link } from "react-router-dom";
 
 const RestaurantList = ({filteredData}) => {
   
@@ -9,7 +10,12 @@ const RestaurantList = ({filteredData}) => {
     <div className="restaurant-list">
       <div className="restaurant-container">
         {filteredData.map((res) => (
-          <RestaurantCard key={res.info.id} resData={res.info} />
+          <Link key={res.info.id}
+             to={`/restaurant/${res.info.id}`}> 
+        
+              <RestaurantCard  resData={res.info} />
+          </Link>
+          
         ))}
       </div>
     </div>

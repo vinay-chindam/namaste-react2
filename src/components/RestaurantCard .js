@@ -15,12 +15,17 @@ const RestaurantCard = ({ resData }) => {
   } = resData;
 
   return (
+
+    
     <div className="restaurant-card">
+
+      
       <img
-        className="restaurant-img"
-        src={IMG_URL + cloudinaryImageId}
-        alt={name}
-      />
+          className="restaurant-img"
+          src={IMG_URL + cloudinaryImageId}
+          alt={name}
+        />
+      
 
       <div className="restaurant-info">
         <h3 className="restaurant-name">{name}</h3>
