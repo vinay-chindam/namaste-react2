@@ -3,12 +3,14 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/UseOnlineStatus";
 import LoginModal from "./LoginModal";
+import OrderModal from "./OrderModal"
 
 function Navbar() {
 
-  const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showOrdernModal, setShowOrderModal] = useState(false);
   const onlineStatus = useOnlineStatus();
-  console.log("showModal:", showModal);
+  
 
   return (
     <>
@@ -21,6 +23,12 @@ function Navbar() {
             Online Status: {onlineStatus ? "✔️" : "❌"}
           </h3>
         </div>
+        <button
+            onClick={() => setShowOrderModal(true)}
+            className="login-btn"
+          >
+            Place Order
+          </button>
 
         <ul className="nav-links">
           <Link to="/">Home</Link>
@@ -33,17 +41,21 @@ function Navbar() {
           <span className="cart">🛒 Cart</span>
 
           <button
-            onClick={() => setShowModal(true)}
+            onClick={() => setShowLoginModal(true)}
             className="login-btn"
           >
             Login
           </button>
+
         </div>
 
       </nav>
+      {
+        showOrdernModal &&(<OrderModal closeModal={()=>setShowOrderModal(false)}/>)
+      }
 
-      {showModal && (
-        <LoginModal closeModal={() => setShowModal(false)} />
+      {showLoginModal && (
+        <LoginModal closeModal={() => setShowLoginModal(false)} />
       )}
     </>
   );
