@@ -3,6 +3,7 @@ import RestaurantList from "../components/RestaurantList";
 import TopRated from "../components/TopRated";
 import Shimmer from "../components/Shimmer";
 import useFetch from "../utils/UseFetch";
+import LoginModal from "./LoginModal";
 
 function Home() {
   

@@ -2,37 +2,50 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/UseOnlineStatus";
-
+import LoginModal from "./LoginModal";
 
 function Navbar() {
 
-    const [isLogin,setIslogin]=useState(false)
-    const onlineStatus=useOnlineStatus()
-
+  const [showModal, setShowModal] = useState(false);
+  const onlineStatus = useOnlineStatus();
+  console.log("showModal:", showModal);
 
   return (
-    <nav className="navbar">
+    <>
+      <nav className="navbar">
 
-      <div className="logo" >
-        🍔 Foodie
-      </div>
-      <div>
-        <h3>Online Status:{onlineStatus ? "✔️" :" ❌"}</h3>
-      </div>
+        <div className="logo">🍔 Foodie</div>
 
-      <ul className="nav-links">
-        <Link to={"/"}>Home</Link>
-        <Link path="/about" to={"/about"}>About</Link>
-        <Link  to={"/contact"}>Contact</Link>
-        <Link  to={"/grossary"}>Grocessary</Link>
-      </ul>
+        <div>
+          <h3>
+            Online Status: {onlineStatus ? "✔️" : "❌"}
+          </h3>
+        </div>
 
-      <div className="nav-right"> 
-        <span className="cart">🛒 Cart</span>
-        <button onClick={()=>setIslogin(!isLogin)} className="login-btn">{isLogin ? "Logout" : "Login"}</button>
-      </div>
+        <ul className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/grossary">Grocessary</Link>
+        </ul>
 
-    </nav>
+        <div className="nav-right">
+          <span className="cart">🛒 Cart</span>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="login-btn"
+          >
+            Login
+          </button>
+        </div>
+
+      </nav>
+
+      {showModal && (
+        <LoginModal closeModal={() => setShowModal(false)} />
+      )}
+    </>
   );
 }
 
