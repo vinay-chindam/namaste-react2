@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import './OrderModal.css'
 
 function OrderModal({ closeModal }) {
+    const ordermodal = document.getElementById("order-modal");
   return ReactDOM.createPortal(
     <div className="loading-overlay" onClick={closeModal}>
       <div
@@ -12,7 +13,7 @@ function OrderModal({ closeModal }) {
         <button onClick={closeModal}>Close</button>
       </div>
     </div>,
-    document.body
+    ordermodal
   );
 }
 
