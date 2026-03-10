@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/UseOnlineStatus";
 import LoginModal from "./LoginModal";
 import OrderModal from "./OrderModal"
+import ThemeContext from "../contexts/ThemeContext";
 
 function Navbar() {
 
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showOrdernModal, setShowOrderModal] = useState(false);
   const onlineStatus = useOnlineStatus();
+  const {toggleTheme}=useContext(ThemeContext)
+
   
 
   return (
@@ -17,6 +20,7 @@ function Navbar() {
       <nav className="navbar">
 
         <div className="logo">🍔 Foodie</div>
+        
 
         <div>
           <h3>
@@ -28,6 +32,12 @@ function Navbar() {
             className="login-btn"
           >
             Place Order
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="login-btn"
+          >
+            Change theme
           </button>
 
         <ul className="nav-links">
@@ -46,6 +56,7 @@ function Navbar() {
           >
             Login
           </button>
+          
 
         </div>
 

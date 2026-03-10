@@ -4,7 +4,7 @@ import './OrderModal.css'
 function OrderModal({ closeModal }) {
     const ordermodal = document.getElementById("order-modal");
   return ReactDOM.createPortal(
-    <div className="loading-overlay" onClick={closeModal}>
+    <div className="loading-overlay" onClick={closeModal} >
       <div
         className="modal-box"
         onClick={(e) => e.stopPropagation()}

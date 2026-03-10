@@ -42,3 +42,13 @@
     border-radius:5px;
     cursor:pointer;
 }
+
+.navbar.light {
+  background: white;
+  color: black;
+}
+
+.navbar.dark {
+  background: black;
+  color: white;
+}

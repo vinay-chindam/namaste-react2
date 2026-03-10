@@ -1,8 +1,20 @@
 import { RouterProvider } from "react-router-dom";
 import router from "./Router/router";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import './App.css'
 
 function App() {
-  return <RouterProvider router={router} />;
+  return(
+    <>
+    <ThemeProvider>
+      <RouterProvider router={router} />;
+
+    </ThemeProvider>
+    
+    </>
+  )
+
+   
 }
 
 export default App;
