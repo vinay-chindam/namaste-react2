@@ -3,13 +3,18 @@ import router from "./Router/router";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import './App.css'
 import { UserProvider } from "./contexts/UserContext";
+import { LoginProvider } from "./contexts/LoginContext";
 
 function App() {
   return(
     <>
     <ThemeProvider>
       <UserProvider>
-        <RouterProvider router={router} />;
+        <LoginProvider>
+          <RouterProvider router={router} />;
+
+        </LoginProvider>
+        
       </UserProvider>
 
     </ThemeProvider>

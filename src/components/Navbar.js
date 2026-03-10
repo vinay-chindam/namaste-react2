@@ -6,6 +6,7 @@ import LoginModal from "./LoginModal";
 import OrderModal from "./OrderModal";
 import ThemeContext from "../contexts/ThemeContext";
 import UserContex from "../contexts/UserContext";
+import LoginContext from "../contexts/LoginContext";
 
 function Navbar() {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -13,7 +14,8 @@ function Navbar() {
   const onlineStatus = useOnlineStatus();
   const { toggleTheme } = useContext(ThemeContext);
   const { userinfo, setUserInfo } = useContext(UserContex);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
+  
 
   return (
     <>
@@ -44,8 +46,13 @@ function Navbar() {
 
           <button
             onClick={() => {
-              setShowLoginModal(true);
-              setIsLoggedIn(!isLoggedIn);
+              if(!isLoggedIn){
+                setShowLoginModal(true);
+              }
+              else{
+                setIsLoggedIn(false)
+              }
+              
             }}
             className="login-btn"
           >

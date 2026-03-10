@@ -11,6 +11,8 @@ export const UserProvider=({children})=>{
         email:"abc@gmail.com",
     });
 
+    
+
     return(
         <UserContext.Provider value={{userinfo,setUserInfo}}>
         {children}
