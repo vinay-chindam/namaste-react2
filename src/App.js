@@ -5,7 +5,10 @@ import './App.css'
 import { UserProvider } from "./contexts/UserContext";
 import { LoginProvider } from "./contexts/LoginContext";
 
+import {data} from "./dummyData"
+
 function App() {
+  console.log(data)
   return(
     <>
     <ThemeProvider>

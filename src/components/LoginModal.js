@@ -52,7 +52,7 @@ function LoginModal({ closeModal }) {
       return;
     }
 
-    console.log("User Data:", formData);
+   
 
     setIsLoggedIn(true);
     closeModal();

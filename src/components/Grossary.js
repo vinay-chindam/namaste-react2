@@ -5,7 +5,7 @@ function Grossary() {
 
     <>
     <div>Grossary</div>
-    {console.log("Grossary component loaded")}
+    
     </>
     
   )

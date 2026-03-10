@@ -10,6 +10,7 @@ import Profile from "../components/Profile";
 import Settings from "../components/Settings";
 import RestaurantMenu from "../components/RestaurantMenu";
 import Shimmer from "../components/Shimmer";
+import VirtualComponent from "../components/VirtualComponent";
 
 const Grossary = lazy(() =>import("../components/Grossary"));
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/virtual",
+        element: <VirtualComponent/>,
       },
       {
         path: "restaurant/:resId",
